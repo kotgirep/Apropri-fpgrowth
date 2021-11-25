@@ -18,3 +18,7 @@ Han proposed the FP-Growth Algorithm, which is an efficient and scalable method 
 6.Calculate confidence using Association Rules.
 
 7.Calculate the lift.
+
+### Shortcomins of Apriopri Algorithms
+1.Apriori requires the creation of candidate itemsets. If the database's itemset is vast, these itemsets may be numerous.
+2.Multiple scans of the database are required by Apriori to check the support of each itemset generated, which results in significant expenses.
