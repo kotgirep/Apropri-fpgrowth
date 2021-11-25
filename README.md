@@ -23,3 +23,19 @@ Han proposed the FP-Growth Algorithm, which is an efficient and scalable method 
 1.Apriori requires the creation of candidate itemsets. If the database's itemset is vast, these itemsets may be numerous.
 
 2.Multiple scans of the database are required by Apriori to check the support of each itemset generated, which results in significant expenses.
+
+### Fpgrowth Steps
+
+1.The first step is to search the database for instances of the itemsets. This step is identical to Apriori's first step. Support count or frequency of 1-itemset refers to the number of 1-itemsets in the database.
+
+2.The FP tree is built in the second stage. To do so, start by making the tree's root. Null is used to represent the root.
+
+3.Scanning the database and examining the transactions is the next stage. Examine the first transaction to determine the itemset included therein. The highest-counting itemset is at the top, followed by the next-lowest-counting itemset, and so on. It signifies that the tree's branch is made up of transaction itemsets arranged in descending order of count.
+
+4.The database's next transaction is reviewed. The itemsets are sorted by count in ascending order. This transaction branch would share a common prefix to the root if any itemset of this transaction is already present in another branch (for example, in the first transaction).
+
+This means that in this transaction, the common itemset is linked to the new node of another itemset.
+
+5.The count of the itemset is also incremented as transactions occur. As nodes are formed and linked according to transactions, the count of both the common node and new node increases by one.
+
+6.The next step is to mine the FP Tree that has been generated. The lowest node, as well as the links between the lowest nodes, are evaluated first. The frequency pattern length 1 is represented by the lowest node. From there, follow the FP Tree's course.
